@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_study_202209/components/date_picker.dart';
 import 'package:flutter_study_202209/views/drop_down_list_view.dart';
 import 'package:flutter_study_202209/views/project_add.dart';
 
@@ -60,6 +61,17 @@ class _MyHomePageState extends State<MyHomePage> {
                   context,
                   MaterialPageRoute(
                     builder: (context) => const ProjectAddition(),
+                  ),
+                );
+              },
+            ),
+            TextButton(
+              child: const Text("DatePicker"),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const DatePickerView(),
                   ),
                 );
               },
