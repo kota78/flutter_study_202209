@@ -11,23 +11,25 @@ class ProjectAddition extends ConsumerWidget {
     final projectAdditionState = ref.watch(projectAdditionProvider);
     final projectAdditionNotifier = ref.watch(projectAdditionProvider.notifier);
     return Scaffold(
-        appBar: AppBar(),
-        body: ListView.builder(
-          itemCount: projectAdditionState.projectList.length + 1,
-          itemBuilder: (context, index) {
-            if (index == projectAdditionState.projectList.length) {
-              return TextButton(
-                onPressed: () {
-                  projectAdditionNotifier.addProject(ProjectCard(
-                      projectCount: projectAdditionState.projectCount));
-                  projectAdditionNotifier.incrementProjectCount();
-                },
-                child: const Text("+プロジェクトを追加"),
-              );
-            }
-            final item = projectAdditionState.projectList[index];
-            return item;
-          },
-        ));
+      appBar: AppBar(),
+      body: ListView.builder(
+        itemCount: projectAdditionState.projectList.length + 1,
+        itemBuilder: (context, index) {
+          if (index == projectAdditionState.projectList.length) {
+            return TextButton(
+              onPressed: () {
+                projectAdditionNotifier.addProject(
+                  ProjectCard(projectCount: projectAdditionState.projectCount),
+                );
+                projectAdditionNotifier.incrementProjectCount();
+              },
+              child: const Text("+プロジェクトを追加"),
+            );
+          }
+          final item = projectAdditionState.projectList[index];
+          return item;
+        },
+      ),
+    );
   }
 }
