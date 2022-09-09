@@ -10,4 +10,16 @@ class FetchData {
     Project project = Project(id: id, name: name, workTime: workTime);
     return project;
   }
+
+  static List<String> fetchProjectNames() {
+    const List<String> projectNames = <String>[
+      'プロジェクト1',
+      'プロジェクト2',
+      'プロジェクト3',
+      'プロジェクト4',
+      'プロジェクト5',
+      'プロジェクト6',
+    ];
+    return projectNames;
+  }
 }
