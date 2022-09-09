@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_study_202209/components/drop_down_list.dart';
 import 'package:flutter_study_202209/components/time_picker.dart';
+import 'package:flutter_study_202209/model/project.dart';
 import 'package:flutter_study_202209/provider/project_addition_provider.dart';
 
 class ProjectCard extends ConsumerWidget {
-  const ProjectCard({Key? key, required this.projectCount}) : super(key: key);
-  final int projectCount;
+  const ProjectCard({Key? key, required this.project}) : super(key: key);
+  final Project project;
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final projectAdditionNotifier = ref.watch(projectAdditionProvider.notifier);
@@ -21,18 +23,18 @@ class ProjectCard extends ConsumerWidget {
         children: [
           Row(
             children: [
-              const Text("プロジェクト"),
-              Text((projectCount + 1).toString()),
+              Text(project.name),
+              Text((project.id).toString()),
               const Spacer(),
               IconButton(
                 icon: const Icon(Icons.cancel_outlined),
                 onPressed: () {
-                  projectAdditionNotifier.removeProject(projectCount);
+                  projectAdditionNotifier.removeProject(project.id);
                 },
               ),
             ],
           ),
-          const DropDownList(),
+          DropDownList(),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: const [
