@@ -13,6 +13,7 @@ class ProjectAddition extends ConsumerWidget {
     final projectAdditionState = ref.watch(projectAdditionProvider);
     final projectAdditionNotifier = ref.watch(projectAdditionProvider.notifier);
     Project newProject;
+    List<String> projectNames = [];
     return Scaffold(
       appBar: AppBar(),
       body: ListView.builder(
@@ -22,13 +23,17 @@ class ProjectAddition extends ConsumerWidget {
             return TextButton(
               onPressed: () {
                 newProject = FetchData.fetchProject();
+                projectNames = FetchData.fetchProjectNames();
                 projectAdditionNotifier.addProject(newProject);
               },
               child: const Text("+プロジェクトを追加"),
             );
           }
           final project = projectAdditionState.projectList[index];
-          return ProjectCard(project: project);
+          return ProjectCard(
+            project: project,
+            projectNames: projectNames,
+          );
         },
       ),
     );

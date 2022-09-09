@@ -6,8 +6,11 @@ import 'package:flutter_study_202209/model/project.dart';
 import 'package:flutter_study_202209/provider/project_addition_provider.dart';
 
 class ProjectCard extends ConsumerWidget {
-  const ProjectCard({Key? key, required this.project}) : super(key: key);
+  const ProjectCard(
+      {Key? key, required this.project, required this.projectNames})
+      : super(key: key);
   final Project project;
+  final List<String> projectNames;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -34,7 +37,7 @@ class ProjectCard extends ConsumerWidget {
               ),
             ],
           ),
-          DropDownList(),
+          const DropDownList(),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: const [

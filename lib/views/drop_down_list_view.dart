@@ -8,7 +8,7 @@ class DropDownListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: Center(child: const DropDownList()),
+      body: const Center(child: DropDownList()),
     );
   }
 }
