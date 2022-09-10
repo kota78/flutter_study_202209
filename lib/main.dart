@@ -88,6 +88,17 @@ class _MyHomePageState extends State<MyHomePage> {
                 );
               },
             ),
+            TextButton(
+              child: const Text("FlashToast"),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const FlashToast(),
+                  ),
+                );
+              },
+            ),
           ],
         ),
       ),
