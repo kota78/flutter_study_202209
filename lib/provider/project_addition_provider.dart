@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_study_202209/components/project_card.dart';
+import 'package:flutter_study_202209/model/project.dart';
 import 'package:flutter_study_202209/model/project_addition_state.dart';
 
 final projectAdditionProvider =
@@ -10,20 +10,14 @@ final projectAdditionProvider =
 class ProjectAdditionProvider extends StateNotifier<ProjectAdditionState> {
   ProjectAdditionProvider() : super(const ProjectAdditionState());
 
-  incrementProjectCount() {
-    int projectCount = state.projectCount;
-    projectCount++;
-    state = state.copyWith(projectCount: projectCount);
-  }
-
-  addProject(ProjectCard project) {
+  addProject(Project project) {
     state = state.copyWith(projectList: state.projectList + [project]);
   }
 
-  removeProject(int projectCount) {
-    List<ProjectCard> projectList = [];
+  removeProject(int id) {
+    List<Project> projectList = [];
     projectList.addAll(state.projectList);
-    projectList.removeWhere((element) => element.projectCount == projectCount);
+    projectList.removeWhere((element) => element.id == id);
     state = state.copyWith(projectList: projectList);
   }
 }

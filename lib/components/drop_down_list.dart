@@ -1,15 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_study_202209/client/fetch_project_data.dart';
 
 const double _kItemExtent = 32.0;
-const List<String> _projectNames = <String>[
-  'プロジェクト1',
-  'プロジェクト2',
-  'プロジェクト3',
-  'プロジェクト4',
-  'プロジェクト5',
-  'プロジェクト6',
-];
 
 class DropDownList extends StatefulWidget {
   const DropDownList({Key? key}) : super(key: key);
@@ -19,6 +12,14 @@ class DropDownList extends StatefulWidget {
 }
 
 class _DropDownListState extends State<DropDownList> {
+  List<String> projectNames = [];
+
+  @override
+  void initState() {
+    projectNames = FetchData.fetchProjectNames();
+    super.initState();
+  }
+
   int _selectedProject = 0;
   void _showDialog(Widget child) {
     showCupertinoModalPopup<void>(
@@ -60,10 +61,10 @@ class _DropDownListState extends State<DropDownList> {
                 _selectedProject = selectedItem;
               });
             },
-            children: List<Widget>.generate(_projectNames.length, (int index) {
+            children: List<Widget>.generate(projectNames.length, (int index) {
               return Center(
                 child: Text(
-                  _projectNames[index],
+                  projectNames[index],
                 ),
               );
             }),
@@ -86,7 +87,7 @@ class _DropDownListState extends State<DropDownList> {
               Padding(
                 padding: const EdgeInsets.all(4.0),
                 child: Text(
-                  _projectNames[_selectedProject],
+                  projectNames[_selectedProject],
                   style: const TextStyle(
                     color: Colors.black,
                     fontSize: 16,
