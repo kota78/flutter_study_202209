@@ -37,6 +37,7 @@ dependencies:
   json_serializable:
   fluttertoast: ^8.0.9
   flash: ^2.0.3+3
+  flutter_slidable:
 
 
   # The following adds the Cupertino Icons font to your application.
