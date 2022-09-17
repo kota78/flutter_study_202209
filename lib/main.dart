@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_study_202209/components/date_picker.dart';
-import 'package:flutter_study_202209/views/drop_down_list_view.dart';
-import 'package:flutter_study_202209/views/project_add.dart';
-import 'package:flutter_study_202209/views/toast_view.dart';
+import 'package:flutter_study_202209/views/flutter_slidable.dart';
 
 void main() {
   runApp(
@@ -20,11 +17,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: const MyHomePage());
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const MyHomePage(),
+    );
   }
 }
 
@@ -44,57 +42,68 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            // TextButton(
+            //   child: const Text("DropDownList"),
+            //   onPressed: () {
+            //     Navigator.push(
+            //       context,
+            //       MaterialPageRoute(
+            //         builder: (context) => const DropDownListView(),
+            //       ),
+            //     );
+            //   },
+            // ),
+            // TextButton(
+            //   child: const Text("Projects"),
+            //   onPressed: () {
+            //     Navigator.push(
+            //       context,
+            //       MaterialPageRoute(
+            //         builder: (context) => const ProjectAddition(),
+            //       ),
+            //     );
+            //   },
+            // ),
+            // TextButton(
+            //   child: const Text("DatePicker"),
+            //   onPressed: () {
+            //     Navigator.push(
+            //       context,
+            //       MaterialPageRoute(
+            //         builder: (context) => const DatePickerView(),
+            //       ),
+            //     );
+            //   },
+            // ),
+            // TextButton(
+            //   child: const Text("Toast"),
+            //   onPressed: () {
+            //     Navigator.push(
+            //       context,
+            //       MaterialPageRoute(
+            //         builder: (context) => const ToastView(),
+            //       ),
+            //     );
+            //   },
+            // ),
+            // TextButton(
+            //   child: const Text("FlashToast"),
+            //   onPressed: () {
+            //     Navigator.push(
+            //       context,
+            //       MaterialPageRoute(
+            //         builder: (context) => const FlashToast(),
+            //       ),
+            //     );
+            //   },
+            // ),
             TextButton(
-              child: const Text("DropDownList"),
+              child: const Text("Slidable"),
               onPressed: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const DropDownListView(),
-                  ),
-                );
-              },
-            ),
-            TextButton(
-              child: const Text("Projects"),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const ProjectAddition(),
-                  ),
-                );
-              },
-            ),
-            TextButton(
-              child: const Text("DatePicker"),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const DatePickerView(),
-                  ),
-                );
-              },
-            ),
-            TextButton(
-              child: const Text("Toast"),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const ToastView(),
-                  ),
-                );
-              },
-            ),
-            TextButton(
-              child: const Text("FlashToast"),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const FlashToast(),
+                    builder: (context) => const SlidableView(),
                   ),
                 );
               },
